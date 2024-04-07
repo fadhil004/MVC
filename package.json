@@ -1,0 +1,23 @@
+{
+  "name": "mvc",
+  "version": "1.0.0",
+  "description": "Learn npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fadhil004/MVC.git"
+  },
+  "author": "Fadhil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fadhil004/MVC/issues"
+  },
+  "homepage": "https://github.com/fadhil004/MVC#readme",
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "moment": "^2.30.1"
+  }
+}

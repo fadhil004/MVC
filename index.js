@@ -1,9 +1,29 @@
-const process = require('process')
-const input = process.argv
+const fs = require('fs') //fileSystem
 
-function penjumlahan(angka1, angka2) {
-    return angka1 + angka2
-}
+const data = [{
+    name: 'Budi',
+    age: 30
+}]
 
-const hasil = penjumlahan(+input[2],+input[3])
-console.log('Hasil Penjumlahan', hasil)
+fs.writeFileSync('test.json', JSON.stringify(data, null, 2))
+
+fs.writeFile('testAsync.txt', 'test tulis async', (err) => {
+    if (!err){
+        console.log('berhasil membuat teks')
+    }
+})
+
+const dataRead = JSON.parse(fs.readFileSync('test.json', 'utf-8'))
+console.log(dataRead[0])
+
+dataRead.push({
+    name: 'Sisil',
+    age: 25
+})
+
+fs.writeFileSync('test.json', JSON.stringify(dataRead, null, 2))
+
+// fs.readFile('test.json', 'utf-8', (err, data) => {
+//     console.log(JSON.parse(data))
+// })
+

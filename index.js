@@ -1,29 +1,23 @@
-const fs = require('fs') //fileSystem
+const process = require('process')
+const Controller = require('./controllers/index')
 
-const data = [{
-    name: 'Budi',
-    age: 30
-}]
+const input = process.argv[2]
+switch (input) {
+    case 'get':
+        Controller.getToDos()
+        break;
 
-fs.writeFileSync('test.json', JSON.stringify(data, null, 2))
+    case 'create':
+        const id = process.argv[3]
+        const name = process.argv[4]
+        const isDone = process.argv[5]
+        Controller.createTodos(id, name, isDone)
+        break;
 
-fs.writeFile('testAsync.txt', 'test tulis async', (err) => {
-    if (!err){
-        console.log('berhasil membuat teks')
-    }
-})
+    case 'delete':
+        break;
 
-const dataRead = JSON.parse(fs.readFileSync('test.json', 'utf-8'))
-console.log(dataRead[0])
-
-dataRead.push({
-    name: 'Sisil',
-    age: 25
-})
-
-fs.writeFileSync('test.json', JSON.stringify(dataRead, null, 2))
-
-// fs.readFile('test.json', 'utf-8', (err, data) => {
-//     console.log(JSON.parse(data))
-// })
-
+    default:
+        console.log('Syntax error')
+        break;
+}
